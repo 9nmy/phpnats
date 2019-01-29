@@ -177,9 +177,9 @@ class Connection
         if ($this->isConnected() === true) {
             if (is_numeric($seconds) === true) {
                 try {
-                    $timeout      = number_format($seconds, 3);
-                    $seconds      = floor($timeout);
-                    $microseconds = (($timeout - $seconds) * 1000);
+                    $timeout2      = number_format($seconds, 3);
+                    $seconds2      = floor($timeout2);
+                    $microseconds = (($seconds - $seconds2) * 1000);
                     return stream_set_timeout($this->streamSocket, $seconds, $microseconds);
                 } catch (\Exception $e) {
                     return false;
@@ -250,8 +250,8 @@ class Connection
             throw Exception::forStreamSocketClientError($errstr, $errno);
         }
 
-        $timeout      = number_format($timeout, 3);
-        $seconds      = floor($timeout);
+        $timeout2      = number_format($timeout, 3);
+        $seconds      = floor($timeout2);
         $microseconds = (($timeout - $seconds) * 1000);
         stream_set_timeout($fp, $seconds, $microseconds);
 
